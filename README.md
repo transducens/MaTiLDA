@@ -6,12 +6,12 @@ V. M. Sánchez-Cartagena, M. Esplà-Gomis, J. A. Pérez-Ortiz and F. Sánchez-Ma
 
 ## Set up environment and install software dependencies
 
-MaTiLDA is distributed as a set of modules for fairseq. It has been tested with fairseq 0.10.0 and Python 3.10. In order to set up the environment, please follow these steps.
+MaTiLDA is distributed as a set of modules for fairseq. It has been tested with fairseq 0.10.2 and Python 3.7. In order to set up the environment, please follow these steps.
 
 Create a Python virtualenv and activate it:
 
 ```
-virtualenv -p python3.10 ~/envs/matilda
+virtualenv -p python3.7 ~/envs/matilda
 source ~/envs/matilda/bin/activate
 ```
 
