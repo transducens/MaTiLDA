@@ -47,6 +47,15 @@ Once finished, export the Bash environment variable `MTLDA_MGIZAPP` with the pat
 export MTLDA_MGIZAPP=$PWD/mgiza/mgizapp/build/bin/
 ```
 
+## Download data
+
+You can download part of the corpora we used in our experiments (low-resource scenario for en-de, en-he and en-vi) as follows:
+
+```
+wget http://www.dlsi.ua.es/~vmsanchez/emnlp2021-data.tar.gz
+tar xvzf emnlp2021-data.tar.gz
+```
+
 ## Train baseline systems
 
 In order to train a baseline system, run the script shown below, where the Bash variables have the following meaning:
