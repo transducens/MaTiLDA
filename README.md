@@ -84,7 +84,7 @@ The Bash variables have the same meaning as in the previous section, and we have
 * $AUXTASK: use `rev` for training with the "reverse" auxiliary task and `src` for training with the "source" auxiliary task.
 
 ```
-./train-mtl1tasks.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test $AUXTASK
+./train-mtlsampleefficient.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test $AUXTASK
 ```
 
 You can find the resulting BLEU and chrF++ scores in the file `$DIR/eval/report-tune`. If that file does not exists because BLEU in the development set did not improve during finetuning, scores can be found in the file `$DIR/eval/report-tune`.
