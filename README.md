@@ -93,7 +93,7 @@ You can find the resulting BLEU and chrF++ scores in the file `$DIR/eval/report-
 
 The "token" and "swap" auxiliary tasks require an alpha parameter that controls the proportion of the sentence which is modified. Moreover, as the random modifications are different in each training epoch, we need to specify the number of expected training epochs in order to precompute the modifications and save training time. To be on the safe side, it is recommended to use 1.5 the number of training epochs of a baseline system without MaTiLDA. This is the meaning of the Bash variables used in the script below:
 
-* $AUXTASK: use `wrdp` for training with the "token" auxiliary task and `swap` for training with the "swap" auxiliary task.
+* $AUXTASK: use `wrdp2` for training with the "token" auxiliary task and `swap` for training with the "swap" auxiliary task.
 * $ALPHA: proportion of the tokens in the target sentence that are modified.
 * $PRECOMPEPOCHS:  number of expected training epochs.
 
