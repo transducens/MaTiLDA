@@ -63,7 +63,7 @@ In order to train a baseline system, run the script shown below, where the Bash 
 * $PAIR: language pair. We always consider English as the first language of the pair, regardless of whether it acts as the source of the target language. Possible values are `en-de`, `en-he`, and `en-vi`.
 * $DIR: path to the directory that will be created during the training process and will contain files with the intermediate steps and results.
 * $bpe: number of BPE merge operations. We used 10000 in all the experiments reported in the paper.
-* $TRAINSET: training data to use. `iwslt` contains IWSLT training parallel data, while `iwsltbackt` also includes backtranslated monolingual English sentences extracted from TED Talks.
+* $TRAINSET: training data to use. Use `iwslt` to use the data from the downloaded package.
 
 ```
 ./train-baseline.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test
