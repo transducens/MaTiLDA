@@ -112,7 +112,7 @@ export MTLDA_MOSES=/home/myuser/software/mosesdecoder
 Once the envitonment variables `MTLDA_MOSES` and `MTLDA_MGIZAPP` have been exported, you can train a system by issuing a command similar to the ones depicted for other auxiliary tasks:
 
 ```
-./train-mtl1tasks.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test replace $ALPHA
+./train-mtlsampleefficient.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test replace $PRECOMPEPOCHS $ALPHA
 ```
 
 
