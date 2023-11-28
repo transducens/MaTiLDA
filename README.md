@@ -91,13 +91,14 @@ You can find the resulting BLEU and chrF++ scores in the file `$DIR/eval/report-
 
 ## Train systems with "token" or "swap" auxiliary tasks
 
-The "token" and "swap" auxiliary tasks require an alpha parameter that controls the proportion of the sentence which is modified. This is the meaning of the Bash variables used in the script below:
+The "token" and "swap" auxiliary tasks require an alpha parameter that controls the proportion of the sentence which is modified. Moreover, as the random modifications are different in each training epoch, we need to specify the number of expected training epochs in order to precompute the modifications and save training time. To be on the safe side, it is recommended to use 1.5 the number of training epochs of a baseline system without MaTiLDA. This is the meaning of the Bash variables used in the script below:
 
 * $AUXTASK: use `wrdp` for training with the "token" auxiliary task and `swap` for training with the "swap" auxiliary task.
-* $ALPHA: proportion of the tokens in the target sentence that are modified. The best values are reported in the appendix of the paper.
+* $ALPHA: proportion of the tokens in the target sentence that are modified.
+* $PRECOMPEPOCHS:  number of expected training epochs.
 
 ```
-./train-mtl1tasks.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test $AUXTASK $ALPHA
+./train-mtlsampleefficient.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test $AUXTASK $PRECOMPEPOCHS $ALPHA
 ```
 
 ## Train systems with "replace" auxiliary task
