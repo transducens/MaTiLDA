@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ## Compile MGIZA++
 
-If you are going to add the "replace" or "mono" auxiliary tasks, you will need to install MGIZA++ as follows. You can skip this section if you are not going to produce synthetic data with these auxiliary tasks.
+If you are going to add the "replace" or "mono" auxiliary tasks, you will need to install MGIZA++ as follows. You can skip this section if you are not going to produce synthetic data with these auxiliary tasks. Execute these commands inside the MaTiLDA working copy diectory:
 
 ```
 git clone https://github.com/moses-smt/mgiza.git
