@@ -6,10 +6,12 @@ V. M. Sánchez-Cartagena, M. Esplà-Gomis, J. A. Pérez-Ortiz and F. Sánchez-Ma
 
 ## Set up environment and install software dependencies
 
+MaTiLDA is distributed as a set of modules for fairseq. It has been tested with fairseq 0.10.2 and Python 3.7. In order to set up the environment, please follow these steps.
+
 Create a Python virtualenv and activate it:
 
 ```
-virtualenv -p python3.6 ~/envs/matilda
+virtualenv -p python3.7 ~/envs/matilda
 source ~/envs/matilda/bin/activate
 ```
 
@@ -27,7 +29,7 @@ pip install -r requirements.txt
 
 ## Compile MGIZA++
 
-If you are going to add the "replace" or "mono" auxiliary tasks, you will need to install MGIZA++ as follows. You can skip this section if you are not going to produce synthetic data with these auxiliary tasks.
+If you are going to add the "replace" or "mono" auxiliary tasks, you will need to install MGIZA++ as follows. You can skip this section if you are not going to produce synthetic data with these auxiliary tasks. Execute these commands inside the MaTiLDA working copy diectory:
 
 ```
 git clone https://github.com/moses-smt/mgiza.git
@@ -45,6 +47,15 @@ Once finished, export the Bash environment variable `MTLDA_MGIZAPP` with the pat
 export MTLDA_MGIZAPP=$PWD/mgiza/mgizapp/build/bin/
 ```
 
+## Download data
+
+You can download part of the corpora we used in our experiments (low-resource scenario for en-de, en-he and en-vi) as follows:
+
+```
+wget http://www.dlsi.ua.es/~vmsanchez/emnlp2021-data.tar.gz
+tar xvzf emnlp2021-data.tar.gz
+```
+
 ## Train baseline systems
 
 In order to train a baseline system, run the script shown below, where the Bash variables have the following meaning:
@@ -52,7 +63,7 @@ In order to train a baseline system, run the script shown below, where the Bash 
 * $PAIR: language pair. We always consider English as the first language of the pair, regardless of whether it acts as the source of the target language. Possible values are `en-de`, `en-he`, and `en-vi`.
 * $DIR: path to the directory that will be created during the training process and will contain files with the intermediate steps and results.
 * $bpe: number of BPE merge operations. We used 10000 in all the experiments reported in the paper.
-* $TRAINSET: training data to use. `iwslt` contains IWSLT training parallel data, while `iwsltbackt` also includes backtranslated monolingual English sentences extracted from TED Talks.
+* $TRAINSET: training data to use. Use `iwslt` to use the data from the downloaded package.
 
 ```
 ./train-baseline.sh $L1 $L2 $DIR $bpe data/$TRAINSET-$PAIR/train data/$TRAINSET-$PAIR/dev data/$TRAINSET-$PAIR/test
